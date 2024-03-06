@@ -16,6 +16,9 @@ filter.connect(out);
 
 const App = () => {
 
+  const [osc1Frequency, setOsc1Frequency] = useState(
+    osc1.frequency.value);
+    
   const [osc1Settings, setOsc1Settings] = useState({
     frequency: osc1.frequency.value,
     detune: osc1.detune.value,
@@ -27,6 +30,8 @@ const App = () => {
   // Change the Osc1 frequency
   const changeOsc1Freq =(e)=>{
     console.log(e.target.value);
+    let {value} = e.target;
+    osc1.frequency.value = value;
   }
 
   const changeOsc1 = e =>{
@@ -59,6 +64,7 @@ const App = () => {
 
       {/* Showing the components themselves and using the props to assign the methods */}
       <Osc1
+      freq={osc1.frequency.value}
       change={changeOsc1}
       settings={osc1Settings}
       changeType={changeOsc1Type}
