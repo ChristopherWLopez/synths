@@ -1,18 +1,14 @@
-import React from "react";
+import React from 'react'
 
-const Osc1 = ({change, settings}) => {
-    let { frequency } = settings
+const Osc1 = ({changeFreq}) => {
   return (
-    <div className="control">
-        <h2>Osc1</h2>
-
-        <div className="parameters">
-            <input
-                value={frequency}
-            ></input>
-        </div>
+    <div>
+      <input onChange={changeFreq}
+      max="5000"
+       type="range" id="frequency"></input>
     </div>
   )
 }
 
 export default Osc1
+
